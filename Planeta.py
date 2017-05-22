@@ -25,6 +25,9 @@ class Planeta:
 		self.x=x
 		self.y=y
 	
+	def __sub__(self, other):
+		return math.sqrt((math.sqrt((self.x**2)+(self.y**2)) - math.sqrt((other.x**2)+(other.y**2)))**2)
+	
 	def distancia(self):
 		d=math.sqrt((self.x**2)+(self.y**2))
 		return d*1.5*10**11
@@ -37,5 +40,7 @@ class Planeta:
 
 p1=Planeta(name, w, px, py)
 p2=Planeta('Jupiter', 1.9*10**27, 5.202, 0)
+
+print "\nDistancia entre %s e %s: %fUA"%(name, p2.nome, p1-p2)
 
 print "\nPlaneta: %s\nMassa: %fKg\nPosicao com centro Sol: (%f,%f)UA\nDistancia do Sol: %fUA\nForca Gravitacional: %fN\nPeriodo: %fAno(s)"%(name, w, px, py, p1.distancia()/(1.5*10**11), p1.force(), p1.period())
